@@ -27,7 +27,7 @@ public class CategoryExcelExporter {
     }
 
     private void writeHeaderLine() {
-        sheet = workbook.createSheet("Resultado");
+        sheet = workbook.createSheet("Result");
         Row row = sheet.createRow(0);
         CellStyle style = workbook.createCellStyle();
 
@@ -37,8 +37,8 @@ public class CategoryExcelExporter {
         style.setFont(font);
 
         createCell(row, 0, "ID", style);
-        createCell(row, 1, "Nombre", style);
-        createCell(row, 2, "Descripción", style);
+        createCell(row, 1, "Name", style);
+        createCell(row, 2, "Description", style);
 
     }
 
