@@ -3,6 +3,9 @@ package com.withnacho.bikestore.demo.response;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This class sets the structure for the information metadata obtained after executing certain queries on the console.
+ */
 public class ResponseRest {
 
     private ArrayList<HashMap<String, String>> metadata = new ArrayList<>();

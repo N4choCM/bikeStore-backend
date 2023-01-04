@@ -1,7 +1,6 @@
 package com.withnacho.bikestore.demo.controller;
 
 import java.io.IOException;
-
 import com.withnacho.bikestore.demo.entity.Category;
 import com.withnacho.bikestore.demo.response.CategoryResponseRest;
 import com.withnacho.bikestore.demo.service.ICategoryService;
@@ -28,64 +27,58 @@ public class CategoryRestController {
     @Autowired
     private ICategoryService service;
 
-
     /**
-     * get all the categories
-     * @return
+     * REST Request for getting all the Categories.
+     * @return All the Categories in the DB.
      */
     @GetMapping("/categories")
     public ResponseEntity<CategoryResponseRest> findCategories() {
-
         return service.findCategories();
     }
 
     /**
-     * get categories by id
-     * @param id
-     * @return
+     * REST Request for getting a Category by its ID.
+     * @param id The ID of the Category to be found.
+     * @return The Category to be found.
      */
     @GetMapping("/categories/{id}")
     public ResponseEntity<CategoryResponseRest> findCategoryById(@PathVariable Long id) {
-
         return service.findCategoryById(id);
     }
 
     /**
-     * save categories
-     * @param category
-     * @return
+     * REST Request for saving a Category in the DB.
+     * @param category The data of the Category to be saved.
+     * @return The saved Category.
      */
     @PostMapping("/categories")
     public ResponseEntity<CategoryResponseRest> saveCategory(@RequestBody Category category) {
-
         return service.saveCategory(category);
     }
 
     /**
-     * update categories
-     * @param category
-     * @param id
-     * @return
+     * REST Request for updating a Category in the DB.
+     * @param category The data of the Category to be updated.
+     * @param id The ID of the Category whose data is to be updated.
+     * @return The updated Category.
      */
     @PutMapping("/categories/{id}")
     public ResponseEntity<CategoryResponseRest> updateCategory(@RequestBody Category category, @PathVariable Long id) {
-
         return service.updateCategory(category, id);
     }
 
     /**
-     * delete categorie
-     * @param id
-     * @return
+     * REST Request for deleting a Category from the DB.
+     * @param id The ID of the Category to be deleted.
+     * @return The deleted Category.
      */
     @DeleteMapping("/categories/{id}")
     public ResponseEntity<CategoryResponseRest> deleteCategory(@PathVariable Long id) {
-
         return service.deleteCategoryById(id);
     }
 
     /**
-     * export to excel file
+     * REST Request for exporting an EXCEL file with the Categories data.
      * @param response
      * @throws IOException
      */
@@ -104,8 +97,5 @@ public class CategoryRestController {
                 categoriesResponse.getBody().getCategoryResponse().getCategoryList());
 
         excelExporter.export(response);
-
-
     }
-
 }

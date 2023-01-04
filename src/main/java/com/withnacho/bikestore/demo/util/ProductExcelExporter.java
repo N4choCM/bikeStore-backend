@@ -13,8 +13,10 @@ import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+/**
+ * This class establishes the structure of the EXCEL file with all the Products.
+ */
 public class ProductExcelExporter {
-
 
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;

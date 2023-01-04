@@ -6,9 +6,12 @@ import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
+/**
+ * This class implements the logic to compress and decompress pictures in order to store and retrieve them in and from a DB.
+ */
 public class Util {
 
-    // compress the image bytes before storing it in the database
+    // Compress the image bytes before storing it in the DB.
     public static byte[] compressZLib(byte[] data) {
         Deflater deflater = new Deflater();
         deflater.setInput(data);
@@ -29,7 +32,7 @@ public class Util {
         return outputStream.toByteArray();
     }
 
-    // uncompress the image bytes before returning it to the angular application
+    // Uncompress the image bytes before returning it to the Angular application.
     public static byte[] decompressZLib(byte[] data) {
         Inflater inflater = new Inflater();
         inflater.setInput(data);

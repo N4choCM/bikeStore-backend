@@ -19,6 +19,10 @@ public class CategoryServiceImpl implements ICategoryService{
     @Autowired
     private ICategoryDao categoryDao;
 
+    /**
+     * REST Request for getting all the Categories in the DB.
+     * @return OK if all the Categories were retrieved or ERROR if something unexpected happened.
+     */
     @Override
     @Transactional(readOnly = true)
     public ResponseEntity<CategoryResponseRest> findCategories() {
@@ -41,6 +45,11 @@ public class CategoryServiceImpl implements ICategoryService{
         return new ResponseEntity<CategoryResponseRest>(categoriesResponse, HttpStatus.OK);
     }
 
+    /**
+     * REST Request for getting a Category by its ID.
+     * @param id The ID of the Category to be found.
+     * @return OK if the Category was found or ERROR if it was not or something wrong happened.
+     */
     @Override
     @Transactional(readOnly = true)
     public ResponseEntity<CategoryResponseRest> findCategoryById(Long id) {
@@ -73,6 +82,11 @@ public class CategoryServiceImpl implements ICategoryService{
         return new ResponseEntity<CategoryResponseRest>(categoriesResponse, HttpStatus.OK);
     }
 
+    /**
+     * REST Request for saving a Category in the DB.
+     * @param category The data of the Category to be saved.
+     * @return OK if the Category was successfully saved or ERROR if it was not or something wrong happened.
+     */
     @Override
     @Transactional
     public ResponseEntity<CategoryResponseRest> saveCategory(Category category) {
@@ -106,6 +120,12 @@ public class CategoryServiceImpl implements ICategoryService{
         return new ResponseEntity<CategoryResponseRest>(categoriesResponse, HttpStatus.OK);
     }
 
+    /**
+     * REST Request for updating a Category in the DB.
+     * @param category The data of the Category to be updated.
+     * @param id The ID of the Category to be updated.
+     * @return OK if the Category was successfully updated or ERROR if it was not or something wrong happened.
+     */
     @Override
     @Transactional
     public ResponseEntity<CategoryResponseRest> updateCategory(Category category, Long id) {
@@ -151,6 +171,11 @@ public class CategoryServiceImpl implements ICategoryService{
         return new ResponseEntity<CategoryResponseRest>(categoriesResponse, HttpStatus.OK);
     }
 
+    /**
+     * REST Request for deleting a Category from the DB.
+     * @param id The ID of the Category to be deleted.
+     * @return OK if the Category was successfully deleted or ERROR if it was not.
+     */
     @Override
     @Transactional
     public ResponseEntity<CategoryResponseRest> deleteCategoryById(Long id) {
